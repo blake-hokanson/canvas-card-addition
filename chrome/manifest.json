@@ -1,0 +1,37 @@
+{
+  "name": "Canvas Card Addition",
+  "description": "made by blue",
+  "version": "1.0.0",
+  "manifest_version": 3,
+  "background": {
+    "service_worker": "background.js"
+  },
+  "omnibox": {
+    "keyword": "gg"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://canvas.umn.edu/"],
+      "css": ["injection/injection.css"],
+      "js": ["injection/injection.js"]
+    }
+  ],
+  "action": {
+    "default_title": "Canvas Card Addition",
+    "default_icon": {
+      "32": "icons/icon-32.png",
+      "72": "icons/icon-72.png",
+      "128": "icons/icon-128.png",
+      "512": "icons/icon-512.png"
+    },
+    "default_popup": "popup.html"
+  },
+  "icons": {
+    "32": "icons/icon-32.png",
+    "72": "icons/icon-72.png",
+    "128": "icons/icon-128.png",
+    "512": "icons/icon-512.png"
+  },
+  "permissions": ["tabs", "scripting", "storage"],
+  "host_permissions": ["https://canvas.umn.edu/"]
+}
