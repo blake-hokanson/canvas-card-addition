@@ -36,9 +36,9 @@ const cardFormat = (card) => {
         <nav class="ic-DashboardCard__action-container" aria-label="Actions for ${card.abrv} ${card.name}">
             <!-- icons here-->
             ${["announcements", "assignment", "discussion", "files"].map((name) => {
-        if (card[name] !== null) return getPath[name](card);
-        else return "";
-    }).join("\n")}
+                if (card[name] !== null) return getPath[name](card);
+                else return "";
+            }).join("\n")}
         </nav>
     </div>
 `)

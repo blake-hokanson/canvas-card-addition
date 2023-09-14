@@ -1,9 +1,6 @@
 console.log("injection.js loaded");
 
-
-let cardsAdded = false;
-
-const info = {
+const card1 = {
   abrv: "CSCI 4041",
   name: "Algorithms and Data Structures",
   color: "rgb(120, 1, 25)",
@@ -16,27 +13,31 @@ const info = {
   files: null,
 }
 
+const cards = [card1];
+
+const WaitCreateButtonObject = () => {
+  setTimeout(CreateButtonObject, 100)
+}
+
 //adds 1 card (can be looped later)
 const CreateButtonObject = () => {
-  if (cardsAdded) return;
-  cardsAdded = true;
-
-  const copy = cardFormat(info);
-  copy.childNodes[1].childNodes[1].addEventListener('click', () => window.location.href = info.url);
-
   const wrapper = document.getElementsByClassName("ic-DashboardCard__box__container")[0];
 
-  wrapper.insertBefore(copy, wrapper.childNodes[info.pos]);
-  console.log("DONE");
+  if (wrapper == null) {
+    console.log("wrapper not found");
+    WaitCreateButtonObject();
+    return;
+  }
+
+  cards.forEach( (info) => {
+    const copy = cardFormat(info);
+    copy.childNodes[1].childNodes[1].addEventListener('click', () => window.location.href = info.url);
+
+    wrapper.insertBefore(copy, wrapper.childNodes[info.pos]);
+
+    console.log("cards loaded");
+  })
 };
 
-//checks for mutations to add button
-const observer = new MutationObserver((mutations) => {
-  if (document.querySelector(".ic-DashboardCard")) {
-    setTimeout(CreateButtonObject, 150); //wait for full load
-  }
-});
-observer.observe(document.body, {
-  childList: true,
-  subtree: true,
-});
+
+window.addEventListener("load", WaitCreateButtonObject);
