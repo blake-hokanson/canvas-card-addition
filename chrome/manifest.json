@@ -30,8 +30,7 @@
       "72": "icons/icon-72.png",
       "128": "icons/icon-128.png",
       "512": "icons/icon-512.png"
-    },
-    "default_popup": "popup.html"
+    }
   },
   "icons": {
     "32": "icons/icon-32.png",
