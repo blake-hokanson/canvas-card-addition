@@ -6,13 +6,14 @@ const card1 = {
   color: "rgb(120, 1, 25)",
   url: "https://z.umn.edu/4041",
   semester: "2023 Fall (08/08/2023-01/06/2024)",
-  pos: 2,
-  announcements: "https://z.umn.edu/4041",
+  pos: 2, // 0 index position
+  announcements: "https://z.umn.edu/4041", //links for icon
   assignments: "https://www-users.cselabs.umn.edu/classes/Fall-2023/csci4041-010/index.php?page=Assignment_Calendar",
   discussions: "https://discord.com/channels/1149087365269291109/1149087366028464134",
-  files: null,
+  files: null, //use null for no icon
 }
 
+//more than 1 card can be added
 const cards = [card1];
 
 const WaitCreateButtonObject = () => {
