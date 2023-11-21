@@ -17,7 +17,7 @@ const card1 = {
 const cards = [card1];
 
 const WaitCreateButtonObject = () => {
-  setTimeout(CreateButtonObject, 100)
+  setTimeout(CreateButtonObject, 120)
 }
 
 //adds 1 card (can be looped later)
@@ -38,7 +38,27 @@ const CreateButtonObject = () => {
 
     console.log("cards loaded");
   })
+
+  //Remove Image
+  const imgCards = document.getElementsByClassName("ic-DashboardCard__header_image")
+  for (let i = 0; i < imgCards.length; i++){
+    card = imgCards[i]
+    card.style = "" //remove image
+    card.firstChild.style = "background-color: rgb(255, 210, 2);"
+  }
 };
 
 
 window.addEventListener("load", WaitCreateButtonObject);
+
+
+//Other Code
+
+const waitToRun = () => {
+  const start = new Date("09/05/2023");
+const end = new Date("12/13/2023");
+const percent = (new Date() - start) / (end - start) * 100;
+
+console.log(`This semester is ${percent.toFixed(4)}% done!`)
+}
+setTimeout(waitToRun, 500);
